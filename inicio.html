@@ -1,16 +1,16 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Protótipo de Coleta de Dados</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <title>Sistema de Segurança Avançado</title>
 
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="inicio.css">
 </head>
 
 <body>
-
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <a class="navbar-brand" href="#">
             <img src="data:image/jpeg;base64,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p25IjwyocQG08rnHgNk8nwU40N1XVc8rJKyM09MCHODyNq8DfkDeQHlKv/KllM3lWuCI5fIxgMytFgG5QBzAWAXNTtD8S25PkM9ttmvs92XPe/cumrJZVidNL44swwbh1BZssooaI3prohBiMQjluyRtzHK0ec08o6QeUKmcX1VYnCTs4m1LN+V0ThmI6WOsR8V0UsWUxaYZ3xVtypDVHo3W0+I7SopJYmbGVmd7bNuS02v9yubEaGOeN8MzA+J7S17TwIXpsspM7lNKRWNKE0n1SVkL3Oo7VMBJLW5rTtHI0g7ndd/uUVfoXiYNjQTX7NdSJZWi8s5wVlyz+RuJfqE3/rV46o8Pmgw9kc8ToZNrM7I8WdYncbKa2SyibbWpiik7VbruwapqRS+TU758pmzbNt7XDbXX11JYNVUzKsVNO+AufCWbRtrgB17d4VmrKjfjSf4cd3cKPawaWSXDqqKJhkkdEQ1jBdxNxuAUhRQvMbjTn/Vro1XQ4lTyS0kscbS/M57CGjzTxKubSvR2Gvp3U01wDZzHt9JjxwcPitzZZUzO1K44rGnOmMarMThcdnEKmO5yvicM1uljrEHvWmGhOJ3t/wAPmv2a6jsllbvlSenq54wXVTiU7htWCmjuMzpXXfblytbe567K8tGMBhoadlNDfK25Lnek5x3ue7pK2qKs2mV6Y604ZREUNBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQf/2Q=="
@@ -38,31 +38,44 @@
         </div>
     </nav>
 
-    <div class="container mt-4">
-        <div class="text-center">
-            <button id="coletar-dados" class="btn btn-primary">Simular Coletar de Dados em Tempo Real</button>
-        </div>
-    </div>
+    <main class="container">
+        <h1 class="display-4">Bem-vindo ao Sistema de Segurança Avançado</h1>
+        <p class="lead">O nosso sistema é projetado para oferecer uma solução completa de segurança para ambientes de
+            trabalho em rodovias e áreas de construção. Aqui está o que o sistema pode fazer:</p>
 
-    <div class="container mt-4">
-        <div class="table-responsive">
-            <table class="table table-bordered">
-                <thead>
-                    <tr>
-                        <th>Carro</th>
-                        <th>Temperatura dos Pneus (°C)</th>
-                        <th>Classificação dos Pneus (0-5)</th>
-                        <th>Velocidade (km/h)</th>
-                        <th>Tamanho do Veículo</th>
-                    </tr>
-                </thead>
-                <tbody>
-                </tbody>
-            </table>
-        </div>
-    </div>
+        <h2>Coleta de Dados de Temperatura dos Pneus</h2>
+        <p>Utilizamos sensores avançados para coletar dados de temperatura dos pneus de veículos em tempo real. Isso nos
+            permite monitorar o desgaste e a condição dos pneus.</p>
 
-    <script src="script.js"></script>
+        <h2>Medição de Velocidade por Meio de Imagens</h2>
+        <p>Nossa tecnologia de visão computacional é capaz de medir a velocidade dos veículos utilizando imagens
+            capturadas no local. Isso ajuda a manter um controle preciso da velocidade dos veículos na área de trabalho.
+        </p>
+
+        <h2>Identificação da Qualidade dos Pneus</h2>
+        <p>Utilizamos algoritmos de aprendizado de máquina para identificar a qualidade dos pneus dos veículos. Qualquer
+            problema, como pneus desgastados, é identificado e relatado imediatamente.</p>
+
+        <h2>Identificação do Tamanho do Veículo</h2>
+        <p>Nosso sistema é capaz de identificar o tamanho dos veículos com base em imagens e sensores. Isso ajuda a
+            garantir que a área de trabalho seja adequada para os veículos que nela circulam.</p>
+
+        <h2>Deteção de Riscos de Invasão</h2>
+        <p>Com base nos dados coletados, nosso sistema avalia os possíveis riscos de invasão de veículos na área de
+            trabalho. Qualquer situação de risco é identificada e comunicada em tempo real.</p>
+
+        <h2>Alertas em Tempo Real</h2>
+        <p>Para manter os colaboradores alertas, nosso sistema emite alertas em tempo real. Além de exibir informações
+            importantes no painel de controle, um colete especial é usado para fornecer feedback visual e tátil aos
+            trabalhadores.</p>
+
+        <p>Com o nosso sistema avançado, sua equipe pode trabalhar com maior segurança, evitando riscos e mantendo o
+            controle sobre o ambiente de trabalho.</p>
+    </main>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 
 </html>
