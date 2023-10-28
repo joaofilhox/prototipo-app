@@ -21,8 +21,7 @@ Contribuições são bem-vindas! Se você deseja melhorar este protótipo ou adi
 
 ## Autor
 
-João Filho
-joaofilhomil@gmail.com
+João Filho Lima da Silva
 
 ## Agradecimentos
 
