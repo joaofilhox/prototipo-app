@@ -14,7 +14,7 @@ Este é um protótipo simples de um aplicativo para coletar e exibir dados fict�
 - Você pode personalizar os dados fictícios ou implementar a coleta de dados real conforme necessário.
 
 ## Uso
-
+link: https://joaofilhox.github.io/prototipo-app/
 ## Contribuições
 
 Contribuições são bem-vindas! Se você deseja melhorar este protótipo ou adicionar funcionalidades, sinta-se à vontade para criar um pull request.
