@@ -117,9 +117,9 @@
                 for (let i = 0; i < maxPredictions; i++) {
                     let classPrediction = ""
                     if (prediction[i].className === "Class 1") {
-                        classPrediction = "Pneu OK"
-                    } else if (prediction[i].className === "Class 2") {
                         classPrediction = "Pneu em Mau Estado"
+                    } else if (prediction[i].className === "Class 2") {
+                        classPrediction = "Pneu OK"
                     }
                     classPrediction += ": " + prediction[i].probability.toFixed(2)
                     labelContainer.childNodes[i].innerHTML = classPrediction
