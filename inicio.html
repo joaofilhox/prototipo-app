@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<html>
 
 <head>
     <meta charset="UTF-8">
@@ -40,32 +41,110 @@
     <div class="container">
         <div class="mt-4">
             <div class="text-center">
-                <button id="coletar-dados" class="btn btn-primary">Simular Coletar de Dados em Tempo Real</button>
+                <button id="coletar-dados" class="btn btn-primary">Simular Coleta de Dados em Tempo Real</button>
             </div>
         </div>
-        <div class="container mt-4">
-            <div class="table-responsive">
-                <table class="table table-bordered">
-                    <thead>
-                        <tr>
-                            <th>Carro</th>
-                            <th>Temperatura dos Pneus (°C)</th>
-                            <th>Classificação dos Pneus (0-5)</th>
-                            <th>Velocidade (km/h)</th>
-                            <th>Tamanho do Veículo</th>
-                        </tr>
-                    </thead>
-                    <tbody>
+    </div>
+    <div class="container mt-4">
+        <div class="table-responsive">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Carro</th>
+                        <th>Temperatura dos Pneus (°C)</th>
+                        <th>Classificação dos Pneus (0-5)</th>
+                        <th>Velocidade (km/h)</th>
+                        <th>Tamanho do Veículo</th>
+                    </tr>
+                </thead>
+                <tbody>
 
-                    </tbody>
-                </table>
-            </div>
+                </tbody>
+            </table>
         </div>
+    </div>
+    <div class="container mt-4">
+        <div id="camera-description" class="text-center mb-3">
+            <h3>A câmera é usada para verificar o estado dos pneus.</h3>
+            <h5>Estamos planejando adicionar as seguintes funcionalidades no futuro:</h5>
+            <p>Medição da temperatura dos pneus, Cálculo do tamanho do veículo e outras.</p>
+        </div>
+
+
+        <button type="button" onclick="init()" class="btn btn-primary">Ligar Câmera</button>
+        <button id="desligar-camera" class="btn btn-danger">Desligar Câmera</button>
+        <div id="webcam-container" class="d-flex justify-content-center"></div>
+        <div id="label-container" class="text-center mt-3"></div>
+
+        <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest/dist/tf.min.js"></script>
+        <script
+            src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@latest/dist/teachablemachine-image.min.js"></script>
+        <script type="text/javascript">
+
+            const URL = "https://teachablemachine.withgoogle.com/models/ErdSLjjEh/"
+
+            let model, webcam, labelContainer, maxPredictions
+
+            async function init() {
+                const modelURL = URL + "model.json"
+                const metadataURL = URL + "metadata.json"
+
+
+                model = await tmImage.load(modelURL, metadataURL)
+                maxPredictions = model.getTotalClasses()
+
+                const flip = true
+                webcam = new tmImage.Webcam(200, 200, flip)
+                await webcam.setup()
+                await webcam.play()
+                window.requestAnimationFrame(loop)
+
+                document.getElementById("webcam-container").appendChild(webcam.canvas)
+                labelContainer = document.getElementById("label-container")
+                for (let i = 0; i < maxPredictions; i++) {
+                    labelContainer.appendChild(document.createElement("div"))
+                }
+            }
+
+            async function loop() {
+                webcam.update()
+                await predict()
+                window.requestAnimationFrame(loop)
+            }
+
+            async function predict() {
+                const prediction = await model.predict(webcam.canvas)
+                for (let i = 0; i < maxPredictions; i++) {
+                    let classPrediction = ""
+                    if (prediction[i].className === "Class 1") {
+                        classPrediction = "Pneu OK"
+                    } else if (prediction[i].className === "Class 2") {
+                        classPrediction = "Pneu em Mau Estado"
+                    }
+                    classPrediction += ": " + prediction[i].probability.toFixed(2)
+                    labelContainer.childNodes[i].innerHTML = classPrediction
+                }
+
+            }
+
+            function desligarCamera() {
+                webcam.stop()
+            }
+
+            const botaoDesligarCamera = document.getElementById("desligar-camera")
+            botaoDesligarCamera.addEventListener("click", desligarCamera)
+
+        </script>
     </div>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest/dist/tf.min.js"></script>
+    <script
+        src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@latest/dist/teachablemachine-image.min.js"></script>
+    <script type="text/javascript">
+    </script>
 </body>
 
 </html>
